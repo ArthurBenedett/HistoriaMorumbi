@@ -22,11 +22,16 @@ body {
 img { display: block; max-width: 100%; }
 
 /* ---------- 1. CAPA ---------- */
+/* A foto fica presa embaixo, ocupando a largura toda; o espaço acima
+   é completado com o mesmo azul do céu, como no modelo. */
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  background: url('img/estadio-hoje.jpg') center 70% / cover no-repeat, #3a7cc4;
+  min-height: max(100vh, 61vw);
+  min-height: max(100svh, 61vw);
+  background:
+    linear-gradient(#3677b1, rgba(54, 119, 177, 0)) center bottom 46.25vw / 100% 10vw no-repeat,
+    url('img/estadio-hoje.jpg') center bottom / 100% auto no-repeat,
+    #3677b1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,19 +39,22 @@ img { display: block; max-width: 100%; }
 }
 
 .topbar {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: clamp(20px, 4vw, 44px) clamp(8px, 2vw, 44px) 0;
+  align-items: flex-start;
+  padding: max(16px, 2.3vw) max(16px, 3.1vw) 0;
 }
 
-.crest svg { width: clamp(52px, 5.5vw, 100px); height: auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
+.crest svg { display: block; width: clamp(48px, 5vw, 110px); height: auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
 
 .signature {
   font-family: var(--font-sign);
   color: var(--white);
-  font-size: clamp(2rem, 4.5vw, 4.2rem);
+  font-size: clamp(1.8rem, 3.6vw, 4.6rem);
   line-height: 1;
 }
 
@@ -55,11 +63,9 @@ img { display: block; max-width: 100%; }
   color: var(--white);
   text-transform: uppercase;
   text-align: center;
-  font-size: clamp(2.8rem, 9vw, 7.5rem);
-  line-height: .95;
-  letter-spacing: -.01em;
-  margin-top: clamp(24px, 3vw, 40px);
-  text-shadow: 0 4px 24px rgba(0, 40, 90, .25);
+  font-size: clamp(2.2rem, 4.9vw, 7rem);
+  line-height: .98;
+  margin-top: max(96px, 6.6vw);
 }
 
 .scroll-hint {
@@ -178,9 +184,14 @@ img { display: block; max-width: 100%; }
   .scroll-hint { animation: none; }
 }
 
+/* Telas em pé: a foto cobre tudo, presa embaixo, e o título fica no céu dela */
+@media (max-aspect-ratio: 1/1) {
+  .hero { background-size: 0 0, cover; }
+}
+
 /* ---------- CELULAR ---------- */
 @media (max-width: 760px) {
-  .hero { background-position: center 80%; }
+
   .story-row,
   .story-row--reverse { grid-template-columns: 1fr; }
   .story-row--reverse .story-img { order: 0; }
