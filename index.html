@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>História do Morumbi</title>
+  <meta name="description" content="A história do Estádio Cícero Pompeu de Toledo, o Morumbi, casa do São Paulo Futebol Clube.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. CAPA -->
+  <header class="hero" id="inicio">
+    <nav class="topbar">
+      <a href="#inicio" class="crest" aria-label="São Paulo Futebol Clube">
+        <svg viewBox="0 0 100 110" aria-hidden="true">
+          <path d="M4 4h92v28L50 106 4 32z" fill="#fff" stroke="#000" stroke-width="6" stroke-linejoin="round"/>
+          <text x="50" y="27" text-anchor="middle" font-family="Archivo Black, Arial Black, sans-serif" font-size="21" fill="#000">SPFC</text>
+          <path d="M10 35h26v48z" fill="#e30613"/>
+          <path d="M64 35h26L64 83z" fill="#000"/>
+        </svg>
+      </a>
+      <span class="signature">ArthurB</span>
+    </nav>
+    <h1 class="hero-title">História do<br>Morumbi</h1>
+    <a href="#estadio-historico" class="scroll-hint" aria-label="Rolar para baixo">&#8595;</a>
+  </header>
+
+  <!-- 2. A HISTÓRIA DE UM ESTÁDIO HISTÓRICO -->
+  <section class="banner banner--memorial" id="estadio-historico">
+    <h2 class="banner-title reveal">A história de um estádio histórico</h2>
+  </section>
+
+  <!-- 3. O INÍCIO / PRIMEIROS PASSOS -->
+  <section class="story">
+    <article class="story-row reveal">
+      <figure class="story-img">
+        <img src="img/inicio-aereo.jpg" alt="Vista aérea do Morumbi lotado nos seus primeiros anos" loading="lazy">
+      </figure>
+      <div class="story-text">
+        <h2>O início</h2>
+        <p>O Estádio do Morumbi (oficialmente Estádio Cícero Pompeu de Toledo) teve o seu início oficial em 1952, quando o terreno foi doado em 4 de agosto daquele ano, e a sua construção começou em seguida.</p>
+      </div>
+    </article>
+
+    <article class="story-row story-row--reverse reveal">
+      <figure class="story-img">
+        <img src="img/primeiros-passos.jpg" alt="Arquibancadas de concreto do Morumbi em construção" loading="lazy">
+      </figure>
+      <div class="story-text">
+        <h2>Primeiros<br>passos</h2>
+        <p>Projetado pelo arquiteto João Batista Vilanova Artigas, o estádio foi erguido aos poucos, com recursos do próprio clube e da sua torcida. Em 2 de outubro de 1960 o Morumbi foi inaugurado, ainda inacabado, e só ficou completo em 1970.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 4. O PRIMEIRO GOL NO MORUMBI -->
+  <section class="banner banner--gol" id="primeiro-gol">
+    <h2 class="banner-title reveal">O primeiro gol no Morumbi</h2>
+  </section>
+
+  <footer class="footer">
+    <p>História do Morumbi &middot; <span class="signature signature--small">ArthurB</span></p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
